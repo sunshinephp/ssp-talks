@@ -12,7 +12,7 @@ return array(
                 'options' => array(
                     'route'    => '/talks',
                     'defaults' => array(
-                        'controller'    => 'ssptalks-talk-controller',
+                        'controller'    => 'ssptalks-talks-controller',
                         'action'        => 'index',
                     ),
                 ),
