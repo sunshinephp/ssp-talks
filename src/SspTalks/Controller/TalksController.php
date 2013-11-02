@@ -8,8 +8,6 @@ class TalksController extends AbstractActionController
 {
     public function indexAction()
     {
-        echo 'talks-controller-test';
-        
         return array();
     }
 
