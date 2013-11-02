@@ -6,12 +6,12 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class TalksController extends AbstractActionController
 {
-    public function indexAction()
+    public function talksAction()
     {
         return array();
     }
 
-    public function fooAction()
+    public function tutorialsAction()
     {
         return array();
     }
