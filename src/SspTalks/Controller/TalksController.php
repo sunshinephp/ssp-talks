@@ -15,4 +15,9 @@ class TalksController extends AbstractActionController
     {
         return array();
     }
+
+    public function speakersAction()
+    {
+        return array();
+    }
 }

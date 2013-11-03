@@ -27,6 +27,16 @@ return array(
                     ),
                 ),
             ),
+            'speakers-index' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/speakers',
+                    'defaults' => array(
+                        'controller'    => 'ssptalks-talks-controller',
+                        'action'        => 'speakers',
+                    ),
+                ),
+            ),
         ),
     ),
     'navigation' => array(
@@ -34,7 +44,7 @@ return array(
             array(
                 'label' => 'Talks',
                 'route' => 'talks-index',
-                'lastmod' => '2013-09-08',
+                'lastmod' => '2013-11-02',
                 'changefreq' => 'monthly',
                 'priority' => '1.0',
                 'order' => '25',
@@ -42,10 +52,18 @@ return array(
             array(
                 'label' => 'Tutorials',
                 'route' => 'tutorials-index',
-                'lastmod' => '2013-09-08',
+                'lastmod' => '2013-11-02',
                 'changefreq' => 'monthly',
                 'priority' => '1.0',
                 'order' => '26',
+            ),
+            array(
+                'label' => 'Speakers',
+                'route' => 'speakers-index',
+                'lastmod' => '2013-11-02',
+                'changefreq' => 'monthly',
+                'priority' => '1.0',
+                'order' => '27',
             ),
         ),
     ),
