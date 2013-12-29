@@ -20,4 +20,11 @@ class TalksController extends AbstractActionController
     {
         return array();
     }
+
+    public function scheduleAction()
+    {
+        $this->layout('layout/layout_no_sidebar');
+        
+        return array();
+    }
 }
