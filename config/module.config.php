@@ -37,6 +37,16 @@ return array(
                     ),
                 ),
             ),
+            'schedule-index' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/schedule',
+                    'defaults' => array(
+                        'controller'    => 'ssptalks-talks-controller',
+                        'action'        => 'schedule',
+                    ),
+                ),
+            ),
         ),
     ),
     'navigation' => array(
@@ -61,6 +71,14 @@ return array(
                 'label' => 'Speakers',
                 'route' => 'speakers-index',
                 'lastmod' => '2013-11-02',
+                'changefreq' => 'monthly',
+                'priority' => '1.0',
+                'order' => '27',
+            ),
+            array(
+                'label' => 'Schedule & Layout',
+                'route' => 'schedule-index',
+                'lastmod' => '2013-12-29',
                 'changefreq' => 'monthly',
                 'priority' => '1.0',
                 'order' => '27',
