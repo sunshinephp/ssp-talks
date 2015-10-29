@@ -59,14 +59,14 @@ return array(
                 'priority' => '1.0',
                 'order' => '27',
                 'pages' => array(
-                    array(
-                        'label' => 'Schedule',
-                        'route' => 'schedule-index',
-                        'lastmod' => '2014-11-21',
-                        'changefreq' => 'monthly',
-                        'priority' => '1.0',
-                        'order' => '25',
-                    ),
+//                    array(
+//                        'label' => 'Schedule',
+//                        'route' => 'schedule-index',
+//                        'lastmod' => '2014-11-21',
+//                        'changefreq' => 'monthly',
+//                        'priority' => '1.0',
+//                        'order' => '25',
+//                    ),
                     array(
                         'label' => 'Talks',
                         'route' => 'talks-index',
