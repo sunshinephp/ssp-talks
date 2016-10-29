@@ -17,6 +17,16 @@ return array(
                     ),
                 ),
             ),
+            'keynotes-index' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/keynotes',
+                    'defaults' => array(
+                        'controller'    => 'ssptalks-talks-controller',
+                        'action'        => 'keynotes',
+                    ),
+                ),
+            ),
             'tutorials-index' => array(
                 'type'    => 'Literal',
                 'options' => array(
@@ -70,6 +80,14 @@ return array(
                     array(
                         'label' => 'Talks',
                         'route' => 'talks-index',
+                        'lastmod' => '2014-11-21',
+                        'changefreq' => 'monthly',
+                        'priority' => '1.0',
+                        'order' => '25',
+                    ),
+                    array(
+                        'label' => 'Keynotes',
+                        'route' => 'keynotes-index',
                         'lastmod' => '2014-11-21',
                         'changefreq' => 'monthly',
                         'priority' => '1.0',

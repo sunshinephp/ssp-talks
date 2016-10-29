@@ -10,6 +10,11 @@ class TalksController extends AbstractActionController
     {
         return array();
     }
+    
+    public function keynotesAction()
+    {
+        return array();
+    }
 
     public function tutorialsAction()
     {
