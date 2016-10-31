@@ -83,7 +83,7 @@ return array(
                         'lastmod' => '2016-10-30',
                         'changefreq' => 'monthly',
                         'priority' => '1.0',
-                        'order' => '27',
+                        'order' => '26',
                     ),
                     array(
                         'label' => 'Keynotes',
@@ -91,7 +91,7 @@ return array(
                         'lastmod' => '2016-10-30',
                         'changefreq' => 'monthly',
                         'priority' => '1.0',
-                        'order' => '25',
+                        'order' => '27',
                     ),
                     array(
                         'label' => 'Tutorials',
@@ -99,7 +99,7 @@ return array(
                         'lastmod' => '2016-10-30',
                         'changefreq' => 'monthly',
                         'priority' => '1.0',
-                        'order' => '26',
+                        'order' => '28',
                     ),
                     array(
                         'label' => 'Talks',
@@ -107,7 +107,7 @@ return array(
                         'lastmod' => '2016-10-30',
                         'changefreq' => 'monthly',
                         'priority' => '1.0',
-                        'order' => '25',
+                        'order' => '29',
                     ),
                 ),
             ),
