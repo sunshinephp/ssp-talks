@@ -2,7 +2,8 @@
     "name": "sunshinephp/ssp-talks",
     "description": "Talks module for use in the SunshinePHP site.",
     "type": "library",
-    "keywords": ["ssphp","ssp"],
+    "keywords": ["sunshinephp","sunphp","ssp"],
+    "license": "BSD-3-Clause",
     "authors": [
     	{
     		"name": "Adam Culp",
