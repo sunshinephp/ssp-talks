@@ -27,7 +27,7 @@
             foreach ($sessions as $session):
         ?>
 
-            <div id="<?=strtolower(preg_replace(" ", "-", $session['title']))?>" style="text-align: justify;">
+            <div id="<?=preg_replace(" ", "-", strtolower($session['title']))?>" style="text-align: justify;">
                 <hr />
 
                 <h2><?=$session['title']?></h2>
