@@ -24,4 +24,13 @@ class SessionsTable
 
         return $row->toArray();
     }
+
+    public function getSpeakers()
+    {
+        $row = $this->tableGateway->select(function (Select $select) {
+            $select->order('first_name ASC');
+        });
+
+        return $row->toArray();
+    }
 }
