@@ -3,12 +3,18 @@
 namespace SspTalks\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
 class TalksController extends AbstractActionController
 {
     public function talksAction()
     {
-        return array();
+//        $this->layout()->setTemplate('layout/layout_no_sidebar');
+
+        $sessionsTable = $this->serviceLocator->get('SessionsTable');
+        $sessions = $sessionsTable->getTalks();
+
+        return new ViewModel(array('sessions' => $sessions));
     }
     
     public function keynotesAction()

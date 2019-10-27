@@ -9,6 +9,7 @@
 
 namespace SspTalks;
 
+use SspTalks\Model\SessionsTable;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
 //use Zend\Mvc\MvcEvent;
@@ -33,5 +34,18 @@ class Module implements AutoloaderProviderInterface
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
+    }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'SessionsTable' => function($sm) {
+                    $db = $sm->get('Zend\Db\Adapter\Adapter');
+                    $table = new SessionsTable($db);
+                    return $table;
+                },
+            ),
+        );
     }
 }

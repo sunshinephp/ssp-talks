@@ -5,6 +5,11 @@ return array(
             'ssptalks-talks-controller' => 'SspTalks\Controller\TalksController',
         ),
     ),
+    'service_manager' => array(
+        'factories' => array(
+            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory'
+        ),
+    ),
     'router' => array(
         'routes' => array(
             'talks-index' => array(
