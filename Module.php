@@ -12,7 +12,6 @@ namespace SspTalks;
 use SspTalks\Model\SessionsTable;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
-//use Zend\Mvc\MvcEvent;
 
 class Module implements AutoloaderProviderInterface
 {
@@ -42,8 +41,7 @@ class Module implements AutoloaderProviderInterface
             'factories' => array(
                 'SessionsTable' => function($sm) {
                     $db = $sm->get('Zend\Db\Adapter\Adapter');
-                    $table = new SessionsTable($db);
-                    return $table;
+                    return new SessionsTable($db);
                 },
             ),
         );
