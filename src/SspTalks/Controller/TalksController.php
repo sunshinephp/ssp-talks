@@ -27,7 +27,10 @@ class TalksController extends AbstractActionController
 
     public function speakersAction()
     {
-        return array();
+        $sessionsTable = $this->serviceLocator->get('SessionsTable');
+        $sessions = $sessionsTable->getSpeakers();
+
+        return new ViewModel(array('sessions' => $sessions));
     }
 
     public function scheduleAction()
