@@ -9,8 +9,6 @@ class TalksController extends AbstractActionController
 {
     public function talksAction()
     {
-//        $this->layout()->setTemplate('layout/layout_no_sidebar');
-
         $sessionsTable = $this->serviceLocator->get('SessionsTable');
         $sessions = $sessionsTable->getTalks();
 
