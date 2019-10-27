@@ -23,11 +23,12 @@
         </div>-->
 
         <?php
+        $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
         if ($sessions):
             foreach ($sessions as $session):
         ?>
 
-            <div id="<?=preg_replace("/[\s_':(),!?.]/", "-", strtolower($session['title']))?>" style="text-align: justify;">
+            <div id="<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title'])))?>" style="text-align: justify;">
                 <hr />
 
                 <h2><?=$session['title']?></h2>
