@@ -9,7 +9,6 @@
     </p>
     
     <div style="padding-left: 30px;">
-<php print_r($sessions); ?>
         <!--<div id="talk_tag" style="text-align: justify;">
             <hr />
         
@@ -23,6 +22,28 @@
             talk_abstract<br /><br />
         </div>-->
 
+        <?php
+        if ($sessions):
+            foreach ($sessions as $session):
+        ?>
+
+        <div id="<?=strtolower(preg_replace(" ", "-", $session['title']))?>" style="text-align: justify;">
+            <hr />
+
+            <h2><?=$session['title']?></h2>
+
+            <a href="/speakers#<?=strtolower($session['first_name'])?>-<?=strtolower($session['last_name'])?>" title="Speaker: speaker_name"><?=$session['first_name']?> <?=$session['last_name']?></a>
+            <div class="tag large session">Session</div>&nbsp;<div class="tag large <?=$session['level']?>"><?=$session['level']?></div>&nbsp;<div class="tag large <?=$session['category']?>"><?=$session['category']?></div>
+
+            <br /><br />
+
+            <?=$session['description']?><br /><br />
+        </div>
+
+        <?php
+        endforeach;
+        endif;
+        ?>
 
         <hr />
     </div>
