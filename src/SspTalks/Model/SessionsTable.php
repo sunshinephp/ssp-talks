@@ -18,12 +18,10 @@ class SessionsTable
     public function getTalks()
     {
         $row = $this->tableGateway->select(function (Select $select) {
-            $select->where('type = regular');
+            $select->where('type = "regular"');
             $select->order('title ASC');
         });
 
         return $row->toArray();
     }
-
 }
-
