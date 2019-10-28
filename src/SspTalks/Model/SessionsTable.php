@@ -28,7 +28,7 @@ class SessionsTable
     public function getSpeakers()
     {
         $row = $this->tableGateway->select(function (Select $select) {
-            $select->order('first_name ASC');
+            $select->order(array('first_name ASC', 'last_name ASC'));
         });
 
         return $row->toArray();
