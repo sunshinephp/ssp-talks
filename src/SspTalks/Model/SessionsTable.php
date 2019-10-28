@@ -18,7 +18,7 @@ class SessionsTable
     public function getTalks()
     {
         $row = $this->tableGateway->select(function (Select $select) {
-            $select->where('type = "regular"');
+            $select->where('type = "talk"');
             $select->order('title ASC');
         });
 
@@ -28,7 +28,7 @@ class SessionsTable
     public function getSpeakers()
     {
         $row = $this->tableGateway->select(function (Select $select) {
-            $select->order(array('first_name ASC', 'last_name ASC'));
+            $select->order(array('first_name ASC', 'last_name ASC', 'type ASC' ));
         });
 
         return $row->toArray();

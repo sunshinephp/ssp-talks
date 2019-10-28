@@ -57,8 +57,8 @@
                 // this is a new speaker, end the previous one
                 if (!$addAnotherTalk) {
                 ?>
-    </div>
-</div>
+                    </div>
+                </div>
 
                 <div id="<?=strtolower($session['first_name'])?>-<?=strtolower($session['last_name'])?>" class="clearfix">
                     <hr />
@@ -70,50 +70,20 @@
                         <h2><?=$session['first_name']?> <?=$session['last_name']?></h2>
 
                         <strong>Bio:</strong> <?=nl2br($session['bio'])?><br /><br />
-
-                        <a href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title'])))?>" title="Talk: <?=$session['title']?>">Talk: <?=$session['title']?></a><br /><br />
+regu1
+                        <a href="/<?=$session['type']?>s#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title'])))?>" title="<?=ucfirst($session['type'])?>: <?=$session['title']?>"><?=ucfirst($session['type'])?>: <?=$session['title']?></a><br /><br />
 
                         <?php
                         } // end !addAnotherTalk
 
                         if ($addAnotherTalk) {
-
-                            // #1 add a tutorial block if this is a tutorial
-                            if ($session['type'] == 'tutorial') {
                                 ?>
 
-                                <a href="/tutorials#<?= preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title']))) ?>"
-                                   title="Tutorial: <?= $session['title'] ?>">Tutorial: <?= $session['title'] ?></a>
+                                <a href="/<?=$session['type']?>s#<?= preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title']))) ?>" title="<?=ucfirst($session['type'])?>: <?= $session['title'] ?>"><?=ucfirst($session['type'])?>: <?= $session['title'] ?></a>
                                 <br/><br/>
 
                                 <?php
-                            } // end tutorial add
-
-                            // #2 add a regular block if this is a regular
-                            if ($session['type'] == 'regular') {
-
-                                ?>
-
-                                <a href="/talks#<?= preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title']))) ?>"
-                                   title="Talk: <?= $session['title'] ?>">Talk: <?= $session['title'] ?></a><br/><br/>
-
-                                <?php
-                            } // end regular add
-
-                            // #3 add a keynote block if this is a keynote
-                            if ($session['type'] == 'keynote') {
-
-                                ?>
-
-                                <a href="/keynotes#<?= preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title']))) ?>"
-                                   title="Talk: <?= $session['title'] ?>">Keynote: <?= $session['title'] ?></a><br/>
-                                <br/>
-
-                                <?php
-                            } // end keynote add
-
                         } // end addAnotherTalk
-
 
             $user_id = $session['user_id'];
 
