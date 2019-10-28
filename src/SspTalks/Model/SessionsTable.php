@@ -25,6 +25,16 @@ class SessionsTable
         return $row->toArray();
     }
 
+    public function getTutorials()
+    {
+        $row = $this->tableGateway->select(function (Select $select) {
+            $select->where('type = "tutorial"');
+            $select->order('title ASC');
+        });
+
+        return $row->toArray();
+    }
+
     public function getSpeakers()
     {
         $row = $this->tableGateway->select(function (Select $select) {

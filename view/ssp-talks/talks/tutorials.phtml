@@ -25,7 +25,34 @@
             <a href="#" title="Preparation Instructions">Preparation Instructions</a><br /><br />
         </div>-->
 
+        <?php
+        $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
+        if ($sessions):
+            foreach ($sessions as $session):
+                ?>
 
+                <div id="<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title'])))?>" style="text-align: justify;">
+                    <hr />
+
+                    <h2><?=$session['title']?></h2>
+
+                    <a href="/speakers#<?=strtolower($session['first_name'])?>-<?=strtolower($session['last_name'])?>" title="Speaker: speaker_name"><?=$session['first_name']?> <?=$session['last_name']?></a>
+                    <div class="tag large tutorial">Tutorial</div>&nbsp;<div class="tag large <?=$session['level']?>"><?=$session['level']?></div>&nbsp;<div class="tag large <?=$session['category']?>"><?=$session['category']?></div>
+
+                    <br /><br />
+
+                    <?=$session['description']?><br /><br />
+
+                    <?php if (!is_null($session['prep_link'])): ?>
+                    <a href="<?=$session['prep_link']?>" title="Preparation Instructions">Preparation Instructions</a><br /><br />
+                    <?php endif; ?>
+                </div>
+
+            <?php
+            endforeach;
+        endif;
+        ?>
+
+        <hr />
     </div>
-    <hr />
 </div>
