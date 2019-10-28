@@ -22,7 +22,10 @@ class TalksController extends AbstractActionController
 
     public function tutorialsAction()
     {
-        return array();
+        $sessionsTable = $this->serviceLocator->get('SessionsTable');
+        $sessions = $sessionsTable->getTutorials();
+
+        return new ViewModel(array('sessions' => $sessions));
     }
 
     public function speakersAction()
