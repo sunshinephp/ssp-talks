@@ -44,6 +44,7 @@
         <?php
         $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
         $user_id = 0;
+        $i = 0;
         if ($sessions):
             foreach ($sessions as $session):
 
@@ -56,9 +57,12 @@
 
                 // this is a new speaker, end the previous one
                 if (!$addAnotherTalk) {
+                    if ($i > 0){
+                        // only add the next 2 divs if not 1st iteration
                 ?>
                     </div>
                 </div>
+                <?php } ?>
 
                 <div id="<?=strtolower($session['first_name'])?>-<?=strtolower($session['last_name'])?>" class="clearfix">
                     <hr />
@@ -70,7 +74,7 @@
                         <h2><?=$session['first_name']?> <?=$session['last_name']?></h2>
 
                         <strong>Bio:</strong> <?=nl2br($session['bio'])?><br /><br />
-regu1
+
                         <a href="/<?=$session['type']?>s#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title'])))?>" title="<?=ucfirst($session['type'])?>: <?=$session['title']?>"><?=ucfirst($session['type'])?>: <?=$session['title']?></a><br /><br />
 
                         <?php
@@ -87,6 +91,7 @@ regu1
 
             $user_id = $session['user_id'];
 
+            $i++;
             endforeach; // end foreach(sessions)
         endif; // end if(sessions)
         ?>
