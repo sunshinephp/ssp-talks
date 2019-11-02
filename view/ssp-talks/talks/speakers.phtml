@@ -73,7 +73,7 @@
                     <div class="span5" style="text-align: justify;">
                         <h2><?=$session['first_name']?> <?=$session['last_name']?></h2>
 
-                        <strong>Bio:</strong> <?=nl2br($session['bio'])?><br /><br />
+                        <strong>Bio:</strong> <?=nl2br($commonMark->convertToHtml($session['bio']))?><br /><br />
 
                         <a href="/<?=$session['type']?>s#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title'])))?>" title="<?=ucfirst($session['type'])?>: <?=$session['title']?>"><?=ucfirst($session['type'])?>: <?=$session['title']?></a><br /><br />
 
