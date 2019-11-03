@@ -34,9 +34,7 @@ class TalksController extends AbstractActionController
         $sessionsTable = $this->serviceLocator->get('SessionsTable');
         $sessions = $sessionsTable->getSpeakers();
 
-        $commonMark = new CommonMarkConverter();
-
-        return new ViewModel(array('sessions' => $sessions, 'commonMark' => $commonMark));
+        return new ViewModel(array('sessions' => $sessions));
     }
 
     public function scheduleAction()
