@@ -12,7 +12,8 @@
     	}
     ],
     "require": {
-    	"zendframework/zendframework": "2.2.*"
+    	"zendframework/zendframework": "2.2.*",
+        "league/commonmark": "0.16.0"
     },
     "autoload": {
         "psr-0": {
