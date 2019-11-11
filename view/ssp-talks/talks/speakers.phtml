@@ -75,7 +75,7 @@
 
                         <strong>Bio:</strong> <?=nl2br($commonMark->convertToHtml($session['bio']))?>
 
-                        <a href="/<?=$session['type']?>s#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title'])))?>" title="<?=ucfirst($session['type'])?>: <?=$session['title']?>"><?=ucfirst($session['type'])?>: <?=$session['title']?></a><br /><br />
+                        <?=ucfirst($session['type'])?>: <a href="/<?=$session['type']?>s#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title'])))?>" title="<?=ucfirst($session['type'])?>: <?=$session['title']?>"><?=$session['title']?></a><br /><br />
 
                         <?php
                         } // end !addAnotherTalk
@@ -83,7 +83,7 @@
                         if ($addAnotherTalk) {
                                 ?>
 
-                                <a href="/<?=$session['type']?>s#<?= preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title']))) ?>" title="<?=ucfirst($session['type'])?>: <?= $session['title'] ?>"><?=ucfirst($session['type'])?>: <?= $session['title'] ?></a>
+                            <?=ucfirst($session['type'])?>: <a href="/<?=$session['type']?>s#<?= preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $session['title']))) ?>" title="<?=ucfirst($session['type'])?>: <?= $session['title'] ?>"><?= $session['title'] ?></a>
                                 <br/><br/>
 
                                 <?php
