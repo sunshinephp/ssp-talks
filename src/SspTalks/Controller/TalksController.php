@@ -2,20 +2,27 @@
 
 namespace SspTalks\Controller;
 
+use SspTalks\Model\SessionsTable;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use League\CommonMark\CommonMarkConverter;
 
 class TalksController extends AbstractActionController
 {
+    protected $sessionsTable;
+
+    public function __construct(SessionsTable $sessionsTable)
+    {
+        $this->sessionsTable = $sessionsTable;
+    }
+
     public function talksAction()
     {
-        $sessionsTable = $this->serviceLocator->get('SessionsTable');
-        $sessions = $sessionsTable->getTalks();
+        $sessions = $this->sessionsTable->getTalks();
 
         return new ViewModel(array('sessions' => $sessions));
     }
-    
+
     public function keynotesAction()
     {
         return array();
@@ -23,16 +30,14 @@ class TalksController extends AbstractActionController
 
     public function tutorialsAction()
     {
-        $sessionsTable = $this->serviceLocator->get('SessionsTable');
-        $sessions = $sessionsTable->getTutorials();
+        $sessions = $this->sessionsTable->getTutorials();
 
         return new ViewModel(array('sessions' => $sessions));
     }
 
     public function speakersAction()
     {
-        $sessionsTable = $this->serviceLocator->get('SessionsTable');
-        $sessions = $sessionsTable->getSpeakers();
+        $sessions = $this->sessionsTable->getSpeakers();
 
         $commonMark = new CommonMarkConverter();
 
@@ -42,7 +47,7 @@ class TalksController extends AbstractActionController
     public function scheduleAction()
     {
         $this->layout('layout/layout_no_sidebar');
-        
+
         return array();
     }
 }
