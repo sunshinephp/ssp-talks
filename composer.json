@@ -12,7 +12,7 @@
     	}
     ],
     "require": {
-    	"league/commonmark": "1.1.0"
+    	"league/commonmark": "0.16.0"
     },
     "autoload": {
         "psr-0": {
