@@ -10,10 +10,9 @@
 namespace SspTalks;
 
 use SspTalks\Model\SessionsTable;
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
 
-class Module implements AutoloaderProviderInterface
+class Module
 {
     public function getAutoloaderConfig()
     {
