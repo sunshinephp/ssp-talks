@@ -18,19 +18,22 @@ class TalksController extends AbstractActionController
 
     public function talksAction()
     {
-        $sessions = $this->sessionsTable->getTalks();
+        $sessions = $this->sessionsTable->getSessions('talk');
 
         return new ViewModel(array('sessions' => $sessions));
     }
 
     public function keynotesAction()
     {
+//        $sessions = $this->sessionsTable->getSessions('keynote');
+
+//        return new ViewModel(array('sessions' => $sessions));
         return array();
     }
 
     public function tutorialsAction()
     {
-        $sessions = $this->sessionsTable->getTutorials();
+        $sessions = $this->sessionsTable->getSessions('tutorial');
 
         return new ViewModel(array('sessions' => $sessions));
     }
@@ -48,6 +51,8 @@ class TalksController extends AbstractActionController
     {
         $this->layout('layout/layout_no_sidebar');
 
-        return array();
+        $sessions = $this->sessionsTable->getSessions();
+
+        return new ViewModel(array('sessions' => $sessions));
     }
 }

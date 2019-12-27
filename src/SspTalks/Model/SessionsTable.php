@@ -15,25 +15,28 @@ class SessionsTable
         $this->tableGateway = new TableGateway('sessions', $adapter);
     }
 
-    public function getTalks()
+    public function getSessions($type = null)
     {
-        $row = $this->tableGateway->select(function (Select $select) {
-            $select->where('type = "talk"');
+        $row = $this->tableGateway->select(function (Select $select) use($type) {
+            if ($type) {
+                $select->where('type = "'.$type.'"');
+            }
+
             $select->order('title ASC');
         });
 
         return $row->toArray();
     }
 
-    public function getTutorials()
-    {
-        $row = $this->tableGateway->select(function (Select $select) {
-            $select->where('type = "tutorial"');
-            $select->order('title ASC');
-        });
-
-        return $row->toArray();
-    }
+//    public function getTutorials()
+//    {
+//        $row = $this->tableGateway->select(function (Select $select) {
+//            $select->where('type = "tutorial"');
+//            $select->order('title ASC');
+//        });
+//
+//        return $row->toArray();
+//    }
 
     public function getSpeakers()
     {

@@ -2,7 +2,7 @@
 return array(
     'controllers' => array(
         'factories' => array(
-            'ssptalks-talks-controller' => SspTalks\Factory\TalksControllerFactory::class,
+            'ssptalks-talks-controller' => 'SspTalks\Controller\TalksControllerFactory',
         ),
     ),
     'service_manager' => array(
