@@ -1,8 +1,8 @@
 <?php
 return array(
     'controllers' => array(
-        'invokables' => array(
-            'ssptalks-talks-controller' => 'SspTalks\Controller\TalksController',
+        'factories' => array(
+            'ssptalks-talks-controller' => 'SspTalks\Controller\TalksControllerFactory',
         ),
     ),
     'service_manager' => array(
