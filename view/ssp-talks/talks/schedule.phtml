@@ -1,3 +1,100 @@
+<?php
+$sessionMap = array(
+    'k1' => 0,
+    'k2' => 0,
+    'k3' => 0,
+    'k4' => 0,
+    'k5' => 0,
+
+    'tu1' => 28,
+    'tu2' => 1,
+    'tu3' => 0, // empty
+    'tu4' => 0, // josh
+    'tu5' => 35,
+    'tu6' => 21,
+    'tu7' => 11,
+    'tu8' => 0, // josh
+
+    // Day 1
+    // 10:15
+    't1' => 8,
+    't2' => 22,
+    't3' => 26,
+
+    // 11:30
+    't4' => 10,
+    't5' => 17,
+    't6' => 16,
+
+    // 14:45
+    't7' => 29,
+    't8' => 20,
+    't9' => 32,
+
+    // 16:00
+    't10' => 34,
+    't11' => 25,
+    't12' => 30,
+
+    // 17:15
+    't13' => 13,
+    't14' => 5,
+    't15' => 12,
+
+    // Day 2
+    // 10:15
+    't16' => 0,
+    't17' => 31,
+    't18' => 4,
+
+    // 11:30
+    't19' => 23,
+    't20' => 6,
+    't21' => 9,
+
+    // 14:45
+    't22' => 24,
+    't23' => 33,
+    't24' => 14,
+
+    // 16:00
+    't25' => 36,
+    't26' => 27,
+    't27' => 15,
+
+    // 17:15
+    't28' => 3,
+    't29' => 7,
+    't30' => 2
+);
+
+// preload array with default TBD values
+$newSessions = array(0 => array(
+    'id' => 0,
+    'title' => 'TBA',
+    'description' => 'TBA',
+    'level' => 'TBA',
+    'category' => 'TBA',
+    'type' => 'TBA',
+    'prep_link' => 'TBA',
+    'user_id' => 'TBA',
+    'first_name' => 'TBA',
+    'last_name' => '-',
+    'bio' => 'TBA',
+    'photo_name' => 'TBA',
+    'created' => 'TBA',
+    'modified' => 'TBA'
+));
+
+// swap auto keys with keys of records
+foreach ($sessions as $session) {
+    $newSessions[$session['id']] = $session;
+}
+
+$badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
+
+print_r($newSessions);
+?>
 <div class="page-header">
     <h1>Schedule & Layout</h1>
 </div>
@@ -5,7 +102,7 @@
     <div id="schedule">
 
         <!-- Speakers, Talks, and Tutorials links -->
-        
+
         <h3>Related Links:</h3>
         <div style="text-align: center">
             <a class="btn btn-large btn-info" href="/speakers" title="Full Speakers List">Full Speakers List</a>&nbsp;&nbsp;
@@ -13,9 +110,9 @@
             <a class="btn btn-large btn-info" href="/tutorials" title="Full Tutorials List">Full Tutorials List</a>
             <a class="btn btn-large btn-info" href="/keynotes" title="Full Keynote List">Full Keynote List</a><br /><br />
         </div>
-    
+
         <!-- Overall details of side rooms -->
-        
+
         <table>
             <tbody>
             <tr class="bottomline">
@@ -52,9 +149,9 @@
             </tbody>
         </table>
         <hr />
-        
+
         <!-- hotel layout image -->
-        
+
         <img src="/img/hotel_layout.png" alt="Conference Layout Image" />
         <hr />
 
@@ -74,9 +171,9 @@
             </tbody>
         </table>
         <hr />
-        
+
         <!-- Tutorial Day -->
-        
+
         <table>
             <tbody>
             <tr>
@@ -95,13 +192,17 @@
             </tr>
             <tr class="bottomline">
                 <td>9:00 - 12:00</td>
-                <td class="span3"><a title="Tutorial: Evolution of PHP Security" href="/tutorials#evolution-of-php-security"><strong>Evolution of PHP Security</strong></a><br />
-                    - <a title="Speaker: Eric Mann" href="/speakers#eric-mann">Eric Mann</a> -</td>
-                <td class="span3"><a title="Tutorial: Getting to Grips with Git" href="/tutorials#getting-to-grips-with-git"><strong>Getting to Grips with Git</strong></a><br />
-                    - <a title="Speaker: Pauline Vos" href="/speakers#pauline-vos">Pauline Vos</a> -</td>
-                <td class="span3"><a title="Tutorial: Getting started with PHP Codesniffer" href="/tutorials#getting-started-with-php-codesniffer"><strong>Getting started with PHP Codesniffer</strong></a><br />
-                    - <a title="Speaker: Juliette Reinders Folmer" href="/speakers#juliette-reinders-folmer">Juliette Reinders Folmer</a> -</td>
-                <td class="span3"><a title="Tutorial: Speaker Clinic Part #1" href="/tutorials#speaker-clinic"><strong>Speaker Clinic Part #1</strong></a><br />
+
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?=$newSessions[$sessionMap['tu1']]['title']?>" href="/tutorials#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu1']]['title'])))?>"><strong><?=$newSessions[$sessionMap['tu1']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['tu1']]['first_name']?> <?=$newSessions[$sessionMap['tu1']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['tu1']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['tu1']]['last_name'])?>"><?=$newSessions[$sessionMap['tu1']]['first_name']?> <?=$newSessions[$sessionMap['tu1']]['last_name']?></a> -</td>
+
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?=$newSessions[$sessionMap['tu2']]['title']?>" href="/tutorials#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu2']]['title'])))?>"><strong><?=$newSessions[$sessionMap['tu2']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['tu2']]['first_name']?> <?=$newSessions[$sessionMap['tu2']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['tu2']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['tu2']]['last_name'])?>"><?=$newSessions[$sessionMap['tu2']]['first_name']?> <?=$newSessions[$sessionMap['tu2']]['last_name']?></a> -</td>
+
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?=$newSessions[$sessionMap['tu3']]['title']?>" href="/tutorials#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu3']]['title'])))?>"><strong><?=$newSessions[$sessionMap['tu3']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['tu3']]['first_name']?> <?=$newSessions[$sessionMap['tu3']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['tu3']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['tu3']]['last_name'])?>"><?=$newSessions[$sessionMap['tu3']]['first_name']?> <?=$newSessions[$sessionMap['tu3']]['last_name']?></a> -</td>
+
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial: Speaker Clinic Part #1" href="/tutorials#speaker-clinic"><strong>Speaker Clinic Part #1</strong></a><br />
                     - <a title="Speaker: Josh Holmes" href="/speakers#josh-holmes">Josh Holmes</a> -</td>
             </tr>
             <tr class="bottomline">
@@ -110,13 +211,16 @@
             </tr>
             <tr class="bottomline">
                 <td>13:00 - 16:00</td>
-                <td class="span3"><a title="Tutorial: Powering Your API Development with OpenAPI Version 3" href="/tutorials#powering-your-api-development-with-openapi-version-3"><strong>Powering Your API Development<br/>with OpenAPI Version 3</strong></a><br />
-                    - <a title="Speaker: Daniel Abernathy" href="/speakers#daniel-abernathy">Daniel Abernathy</a> -</td>
-                <td class="span3"><a title="Tutorial: Hands on Docker - Launch your own LEMP or LAMP stack" href="/tutorials#hands-on-docker-launch-your-own-lemp-or-lamp-stack"><strong>Hands on Docker - Launch your<br/>own LEMP or LAMP stack</strong></a><br />
-                    - <a title="Speaker: Dana Luther" href="/speakers#dana-luther">Dana Luther</a> -</td>
-                <td class="span3"><a title="Tutorial: BDD API Tests with Gherkin and Behat" href="/tutorials#bdd-api-tests-with-gherkin-and-behat"><strong>BDD API Tests with<br/>Gherkin and Behat</strong></a><br />
-                    - <a title="Speaker: Mark Niebergall" href="/speakers#mark-niebergall">Mark Niebergall</a> -</td>
-                <td class="span3"><a title="Tutorial: Speaker Clinic Part #1" href="/tutorials#speaker-clinic"><strong>Speaker Clinic Part #2</strong></a><br />
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?=$newSessions[$sessionMap['tu5']]['title']?>" href="/tutorials#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu5']]['title'])))?>"><strong><?=$newSessions[$sessionMap['tu5']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['tu5']]['first_name']?> <?=$newSessions[$sessionMap['tu5']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['tu5']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['tu5']]['last_name'])?>"><?=$newSessions[$sessionMap['tu5']]['first_name']?> <?=$newSessions[$sessionMap['tu5']]['last_name']?></a> -</td>
+
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?=$newSessions[$sessionMap['tu6']]['title']?>" href="/tutorials#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu6']]['title'])))?>"><strong><?=$newSessions[$sessionMap['tu6']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['tu6']]['first_name']?> <?=$newSessions[$sessionMap['tu6']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['tu6']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['tu6']]['last_name'])?>"><?=$newSessions[$sessionMap['tu6']]['first_name']?> <?=$newSessions[$sessionMap['tu6']]['last_name']?></a> -</td>
+
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?=$newSessions[$sessionMap['tu7']]['title']?>" href="/tutorials#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu7']]['title'])))?>"><strong><?=$newSessions[$sessionMap['tu7']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['tu7']]['first_name']?> <?=$newSessions[$sessionMap['tu7']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['tu7']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['tu7']]['last_name'])?>"><?=$newSessions[$sessionMap['tu7']]['first_name']?> <?=$newSessions[$sessionMap['tu7']]['last_name']?></a> -</td>
+
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial: Speaker Clinic Part #1" href="/tutorials#speaker-clinic"><strong>Speaker Clinic Part #2</strong></a><br />
                     - <a title="Speaker: Josh Holmes" href="/speakers#josh-holmes">Josh Holmes</a> -</td>
             </tr>
             <tr>
@@ -126,9 +230,9 @@
             </tbody>
         </table>
         <hr />
-        
+
         <!-- Day #1 -->
-        
+
         <table>
             <tbody>
             <tr>
@@ -152,21 +256,29 @@
             </tr>
             <tr class="bottomline">
                 <td>10:15 - 11:15</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t1']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t1']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t1']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t1']]['first_name']?> <?=$newSessions[$sessionMap['t1']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t1']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t1']]['last_name'])?>"><?=$newSessions[$sessionMap['t1']]['first_name']?> <?=$newSessions[$sessionMap['t1']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t2']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t2']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t2']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t2']]['first_name']?> <?=$newSessions[$sessionMap['t2']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t2']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t2']]['last_name'])?>"><?=$newSessions[$sessionMap['t2']]['first_name']?> <?=$newSessions[$sessionMap['t2']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t3']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t3']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t3']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t3']]['first_name']?> <?=$newSessions[$sessionMap['t3']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t3']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t3']]['last_name'])?>"><?=$newSessions[$sessionMap['t3']]['first_name']?> <?=$newSessions[$sessionMap['t3']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>11:30 - 12:30</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t4']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t4']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t4']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t4']]['first_name']?> <?=$newSessions[$sessionMap['t4']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t4']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t4']]['last_name'])?>"><?=$newSessions[$sessionMap['t4']]['first_name']?> <?=$newSessions[$sessionMap['t4']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t5']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t5']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t5']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t5']]['first_name']?> <?=$newSessions[$sessionMap['t5']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t5']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t5']]['last_name'])?>"><?=$newSessions[$sessionMap['t5']]['first_name']?> <?=$newSessions[$sessionMap['t5']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t6']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t6']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t6']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t6']]['first_name']?> <?=$newSessions[$sessionMap['t6']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t6']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t6']]['last_name'])?>"><?=$newSessions[$sessionMap['t6']]['first_name']?> <?=$newSessions[$sessionMap['t6']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>12:30 - 13:30</td>
@@ -180,30 +292,42 @@
             </tr>
             <tr class="bottomline">
                 <td>14:45 - 15:45</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t7']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t7']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t7']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t7']]['first_name']?> <?=$newSessions[$sessionMap['t7']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t7']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t7']]['last_name'])?>"><?=$newSessions[$sessionMap['t7']]['first_name']?> <?=$newSessions[$sessionMap['t7']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t8']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t8']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t8']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t8']]['first_name']?> <?=$newSessions[$sessionMap['t8']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t8']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t8']]['last_name'])?>"><?=$newSessions[$sessionMap['t8']]['first_name']?> <?=$newSessions[$sessionMap['t8']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t9']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t9']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t9']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t9']]['first_name']?> <?=$newSessions[$sessionMap['t9']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t9']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t9']]['last_name'])?>"><?=$newSessions[$sessionMap['t9']]['first_name']?> <?=$newSessions[$sessionMap['t9']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>16:00 - 17:00</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t10']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t10']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t10']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t10']]['first_name']?> <?=$newSessions[$sessionMap['t10']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t10']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t10']]['last_name'])?>"><?=$newSessions[$sessionMap['t10']]['first_name']?> <?=$newSessions[$sessionMap['t10']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t11']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t11']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t11']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t11']]['first_name']?> <?=$newSessions[$sessionMap['t11']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t11']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t11']]['last_name'])?>"><?=$newSessions[$sessionMap['t11']]['first_name']?> <?=$newSessions[$sessionMap['t11']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t12']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t12']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t12']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t12']]['first_name']?> <?=$newSessions[$sessionMap['t12']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t12']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t12']]['last_name'])?>"><?=$newSessions[$sessionMap['t12']]['first_name']?> <?=$newSessions[$sessionMap['t12']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>17:15 - 18:15</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t13']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t13']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t13']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t13']]['first_name']?> <?=$newSessions[$sessionMap['t13']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t13']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t13']]['last_name'])?>"><?=$newSessions[$sessionMap['t13']]['first_name']?> <?=$newSessions[$sessionMap['t13']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t14']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t14']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t14']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t14']]['first_name']?> <?=$newSessions[$sessionMap['t14']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t14']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t14']]['last_name'])?>"><?=$newSessions[$sessionMap['t14']]['first_name']?> <?=$newSessions[$sessionMap['t14']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t15']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t15']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t15']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t15']]['first_name']?> <?=$newSessions[$sessionMap['t15']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t15']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t15']]['last_name'])?>"><?=$newSessions[$sessionMap['t15']]['first_name']?> <?=$newSessions[$sessionMap['t15']]['last_name']?></a> -</td>
+
             </tr>
             <!--<tr>
                 <td>18:15 - 19:00</td>
@@ -221,7 +345,7 @@
             </tbody>
         </table>
         <hr />
-        
+
         <!-- Day #2 -->
 
         <table>
@@ -243,21 +367,29 @@
             </tr>
             <tr class="bottomline">
                 <td>10:15 - 11:15</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t16']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t16']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t16']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t16']]['first_name']?> <?=$newSessions[$sessionMap['t16']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t16']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t16']]['last_name'])?>"><?=$newSessions[$sessionMap['t16']]['first_name']?> <?=$newSessions[$sessionMap['t16']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t17']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t17']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t17']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t17']]['first_name']?> <?=$newSessions[$sessionMap['t17']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t17']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t17']]['last_name'])?>"><?=$newSessions[$sessionMap['t17']]['first_name']?> <?=$newSessions[$sessionMap['t17']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t18']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t18']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t18']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t18']]['first_name']?> <?=$newSessions[$sessionMap['t18']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t18']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t18']]['last_name'])?>"><?=$newSessions[$sessionMap['t18']]['first_name']?> <?=$newSessions[$sessionMap['t18']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>11:30 - 12:30</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t19']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t19']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t19']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t19']]['first_name']?> <?=$newSessions[$sessionMap['t19']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t19']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t19']]['last_name'])?>"><?=$newSessions[$sessionMap['t19']]['first_name']?> <?=$newSessions[$sessionMap['t19']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t20']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t20']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t20']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t20']]['first_name']?> <?=$newSessions[$sessionMap['t20']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t20']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t20']]['last_name'])?>"><?=$newSessions[$sessionMap['t20']]['first_name']?> <?=$newSessions[$sessionMap['t20']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t21']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t21']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t21']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t21']]['first_name']?> <?=$newSessions[$sessionMap['t21']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t21']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t21']]['last_name'])?>"><?=$newSessions[$sessionMap['t21']]['first_name']?> <?=$newSessions[$sessionMap['t21']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>12:30 - 13:30</td>
@@ -271,30 +403,42 @@
             </tr>
             <tr class="bottomline">
                 <td>14:45 - 15:45</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t22']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t22']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t22']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t22']]['first_name']?> <?=$newSessions[$sessionMap['t22']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t22']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t22']]['last_name'])?>"><?=$newSessions[$sessionMap['t22']]['first_name']?> <?=$newSessions[$sessionMap['t22']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t23']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t23']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t23']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t23']]['first_name']?> <?=$newSessions[$sessionMap['t23']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t23']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t23']]['last_name'])?>"><?=$newSessions[$sessionMap['t23']]['first_name']?> <?=$newSessions[$sessionMap['t23']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t24']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t24']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t24']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t24']]['first_name']?> <?=$newSessions[$sessionMap['t24']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t24']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t24']]['last_name'])?>"><?=$newSessions[$sessionMap['t24']]['first_name']?> <?=$newSessions[$sessionMap['t24']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>16:00 - 17:00</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t25']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t25']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t25']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t25']]['first_name']?> <?=$newSessions[$sessionMap['t25']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t25']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t25']]['last_name'])?>"><?=$newSessions[$sessionMap['t25']]['first_name']?> <?=$newSessions[$sessionMap['t25']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t26']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t26']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t26']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t26']]['first_name']?> <?=$newSessions[$sessionMap['t26']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t26']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t26']]['last_name'])?>"><?=$newSessions[$sessionMap['t26']]['first_name']?> <?=$newSessions[$sessionMap['t26']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t27']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t27']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t27']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t27']]['first_name']?> <?=$newSessions[$sessionMap['t27']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t27']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t27']]['last_name'])?>"><?=$newSessions[$sessionMap['t27']]['first_name']?> <?=$newSessions[$sessionMap['t27']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>17:15 - 18:15</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
-                <td class="span4"><a title="Talk: TBA" href="/talks#TBA"><strong>TBA</strong></a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t28']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t28']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t28']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t28']]['first_name']?> <?=$newSessions[$sessionMap['t28']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t28']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t28']]['last_name'])?>"><?=$newSessions[$sessionMap['t28']]['first_name']?> <?=$newSessions[$sessionMap['t28']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t29']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t29']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t29']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t29']]['first_name']?> <?=$newSessions[$sessionMap['t29']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t29']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t29']]['last_name'])?>"><?=$newSessions[$sessionMap['t29']]['first_name']?> <?=$newSessions[$sessionMap['t29']]['last_name']?></a> -</td>
+
+                <td class="span4" style="padding-left: 10px;padding-right: 10px"><a title="Talk#: <?=$newSessions[$sessionMap['t30']]['title']?>" href="/talks#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['t30']]['title'])))?>"><strong><?=$newSessions[$sessionMap['t30']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['t30']]['first_name']?> <?=$newSessions[$sessionMap['t30']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['t30']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['t30']]['last_name'])?>"><?=$newSessions[$sessionMap['t30']]['first_name']?> <?=$newSessions[$sessionMap['t30']]['last_name']?></a> -</td>
+
             </tr>
             <tr class="bottomline">
                 <td>18:30 - 19:30</td>
