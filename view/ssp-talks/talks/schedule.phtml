@@ -249,8 +249,8 @@ $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
             <tr class="bottomline">
                 <td>9:00 - 10:00</td>
                 <td class="keyrow" colspan="3">Opening Keynote - in Grand Ballroom<br />
-                    <a title="Keynote: TBA" href="/keynotes#TBA">TBA</a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+                    <a title="Keynote: <?=$newSessions[$sessionMap['k1']]['title']?>" href="/keynotes#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['k1']]['title'])))?>"><?=$newSessions[$sessionMap['k1']]['title']?></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['k1']]['first_name']?> <?=$newSessions[$sessionMap['k1']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['k1']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['k1']]['last_name'])?>"><?=$newSessions[$sessionMap['k1']]['first_name']?> <?=$newSessions[$sessionMap['k1']]['last_name']?></a> -</td>
             </tr>
             <tr class="bottomline">
                 <td>10:15 - 11:15</td>
@@ -285,8 +285,8 @@ $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
             <tr class="bottomline">
                 <td>13:30 - 14:30</td>
                 <td class="keyrow" colspan="3">Lunch General Session - in Grand Ballroom<br />
-                    <a title="General Session: TBA" href="/keynotes#TBA">TBA</a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+                    <a title="Keynote: <?=$newSessions[$sessionMap['k2']]['title']?>" href="/keynotes#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['k2']]['title'])))?>"><?=$newSessions[$sessionMap['k2']]['title']?></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['k2']]['first_name']?> <?=$newSessions[$sessionMap['k2']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['k2']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['k2']]['last_name'])?>"><?=$newSessions[$sessionMap['k2']]['first_name']?> <?=$newSessions[$sessionMap['k2']]['last_name']?></a> -</td>
             </tr>
             <tr class="bottomline">
                 <td>14:45 - 15:45</td>
@@ -360,8 +360,8 @@ $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
             <tr class="bottomline">
                 <td class="span2">9:00 - 10:00</td>
                 <td class="keyrow" colspan="3">Day 2 General Session - in Grand Ballroom<br />
-                    <a title="General Session: TBA" href="/keynotes#TBA">TBA</a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+                    <a title="Keynote: <?=$newSessions[$sessionMap['k3']]['title']?>" href="/keynotes#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['k3']]['title'])))?>"><?=$newSessions[$sessionMap['k3']]['title']?></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['k3']]['first_name']?> <?=$newSessions[$sessionMap['k3']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['k3']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['k3']]['last_name'])?>"><?=$newSessions[$sessionMap['k3']]['first_name']?> <?=$newSessions[$sessionMap['k3']]['last_name']?></a> -</td>
             </tr>
             <tr class="bottomline">
                 <td>10:15 - 11:15</td>
@@ -396,8 +396,9 @@ $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
             <tr class="bottomline">
                 <td>13:30 - 14:30</td>
                 <td class="keyrow" colspan="3">Day 2 Lunch General Session - in Grand Ballroom<br />
-                    <a title="General Session: TBA" href="/keynotes#TBA">TBA</a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+
+                    <a title="Keynote: <?=$newSessions[$sessionMap['k4']]['title']?>" href="/keynotes#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['k4']]['title'])))?>"><?=$newSessions[$sessionMap['k4']]['title']?></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['k4']]['first_name']?> <?=$newSessions[$sessionMap['k4']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['k4']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['k4']]['last_name'])?>"><?=$newSessions[$sessionMap['k4']]['first_name']?> <?=$newSessions[$sessionMap['k4']]['last_name']?></a> -</td>
             </tr>
             <tr class="bottomline">
                 <td>14:45 - 15:45</td>
@@ -441,8 +442,8 @@ $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
             <tr class="bottomline">
                 <td>18:30 - 19:30</td>
                 <td class="keyrow" colspan="3"><strong>Closing Keynote - in Grand Ballroom</strong><br />
-                    <a title="Keynote: TBA" href="/keynotes#TBA">TBA</a><br />
-                    - <a title="Speaker: TBA" href="/speakers#TBA">TBA</a> -</td>
+                    <a title="Keynote: <?=$newSessions[$sessionMap['k5']]['title']?>" href="/keynotes#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['k5']]['title'])))?>"><?=$newSessions[$sessionMap['k5']]['title']?></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['k5']]['first_name']?> <?=$newSessions[$sessionMap['k5']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['k5']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['k5']]['last_name'])?>"><?=$newSessions[$sessionMap['k5']]['first_name']?> <?=$newSessions[$sessionMap['k5']]['last_name']?></a> -</td>
             </tr>
             <tr>
                 <td>19:30 - 19:45</td>
