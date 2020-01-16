@@ -25,10 +25,9 @@ class TalksController extends AbstractActionController
 
     public function keynotesAction()
     {
-//        $sessions = $this->sessionsTable->getSessions('keynote');
+        $sessions = $this->sessionsTable->getSessions('keynote');
 
-//        return new ViewModel(array('sessions' => $sessions));
-        return array();
+        return new ViewModel(array('sessions' => $sessions));
     }
 
     public function tutorialsAction()
