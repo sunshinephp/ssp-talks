@@ -8,7 +8,7 @@ $sessionMap = array(
 
     'tu1' => 28,
     'tu2' => 1,
-    'tu3' => 0, // josh
+    'tu3' => 42, // josh
     'tu4' => 0, // empty
     'tu5' => 35,
     'tu6' => 21,
@@ -197,11 +197,11 @@ $badArray = ["'", ":", "(", ")", ",", "!", "?", "."];
                 <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?=$newSessions[$sessionMap['tu2']]['title']?>" href="/tutorials#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu2']]['title'])))?>"><strong><?=$newSessions[$sessionMap['tu2']]['title']?></strong></a><br />
                     - <a title="Speaker: <?=$newSessions[$sessionMap['tu2']]['first_name']?> <?=$newSessions[$sessionMap['tu2']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['tu2']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['tu2']]['last_name'])?>"><?=$newSessions[$sessionMap['tu2']]['first_name']?> <?=$newSessions[$sessionMap['tu2']]['last_name']?></a> -</td>
 
-                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial: Speaker Clinic Part #1" href="/tutorials#speaker-clinic"><strong>Speaker Clinic Part #1</strong></a><br />
-                    - <a title="Speaker: Josh Holmes" href="/speakers#josh-holmes">Josh Holmes</a> -</td>
+                <!--<td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial: Speaker Clinic Part #1" href="/tutorials#speaker-clinic"><strong>Speaker Clinic Part #1</strong></a><br />
+                    - <a title="Speaker: Josh Holmes" href="/speakers#josh-holmes">Josh Holmes</a> -</td>-->
 
-                <!--<td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?/*=$newSessions[$sessionMap['tu3']]['title']*/?>" href="/tutorials#<?/*=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu3']]['title'])))*/?>"><strong><?/*=$newSessions[$sessionMap['tu3']]['title']*/?></strong></a><br />
-                    - <a title="Speaker: <?/*=$newSessions[$sessionMap['tu3']]['first_name']*/?> <?/*=$newSessions[$sessionMap['tu3']]['last_name']*/?>" href="/speakers#<?/*=strtolower($newSessions[$sessionMap['tu3']]['first_name'])*/?>-<?/*=strtolower($newSessions[$sessionMap['tu3']]['last_name'])*/?>"><?/*=$newSessions[$sessionMap['tu3']]['first_name']*/?> <?/*=$newSessions[$sessionMap['tu3']]['last_name']*/?></a> -</td>-->
+                <td class="span3" style="padding-left: 10px;padding-right: 10px"><a title="Tutorial#: <?=$newSessions[$sessionMap['tu3']]['title']?>" href="/tutorials#<?=preg_replace("/[\s_]/", "-", strtolower(str_replace($badArray, "", $newSessions[$sessionMap['tu3']]['title'])))?>"><strong><?=$newSessions[$sessionMap['tu3']]['title']?></strong></a><br />
+                    - <a title="Speaker: <?=$newSessions[$sessionMap['tu3']]['first_name']?> <?=$newSessions[$sessionMap['tu3']]['last_name']?>" href="/speakers#<?=strtolower($newSessions[$sessionMap['tu3']]['first_name'])?>-<?=strtolower($newSessions[$sessionMap['tu3']]['last_name'])?>"><?=$newSessions[$sessionMap['tu3']]['first_name']?> <?=$newSessions[$sessionMap['tu3']]['last_name']?></a> -</td>
 
             </tr>
             <tr class="bottomline">
